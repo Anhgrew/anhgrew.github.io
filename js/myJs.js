@@ -14,7 +14,7 @@ function firstQuestion(){
     
     $('.content').hide();
     Swal.fire({
-        title: 'He luu Dou cutee của anh',
+        title: 'He luu Dou cute...',
         text: 'Anh có điều bí mật muốn hỏi công chúa...',
         imageUrl: '../img/cuteCat.jpg',
         imageWidth: 300,
@@ -73,7 +73,7 @@ $('#no').click(() => {
 // generate text in input
 function textGenerate() {
     var n = "";
-    var text = " Tại vì anh đẹp trai, tốt tính vl :>>> ";
+    var text = " Tại vì anh iu Dou cute đúng không ... :>> ";
     var a = Array.from(text);
     var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
     var count = textVal.length;
@@ -108,7 +108,7 @@ $('#yes').click(function() {
               left top
               repeat
             `,
-        showCancelButton: false,
+        showCancelButton: true,
         cancelButtonText: "Thôi ngại lém :<<",
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -122,7 +122,7 @@ $('#yes').click(function() {
                 confirmButtonText: 'Okiiiii lun <3',
                 background: '#fff url("../img/iput-bg.jpg")',
                 title: 'Cảm ơn công chúa đã sử dụng dịch vụ yêu và được yêu trọn đời',
-                text: "Chiều mai anh qua đón em đi ăn nhoaa á bé iuuuuu :3",
+                text: "Chiều mai anh qua đón em đi ăn nha á bé iuu :3",
                 backdrop: `
                 rgba(0,0,123,0.4)
                 url("../img/giphy.gif")
@@ -132,7 +132,7 @@ $('#yes').click(function() {
                 confirmButtonColor: '#83d0c9',
                 onClose: () => {
                     window.location = 'https://www.facebook.com';
-                  }
+                }
             })
         }
     })
