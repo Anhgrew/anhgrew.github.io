@@ -37,27 +37,59 @@
       <button id="yes" type="button" class="btn btn-danger btn-lg">Em đồng ý &hearts; </button>
       <button id="no" type="button" class="btn btn-info btn-lg">Anh mơ à :< </button>
     </div>
+    <div class="alert">
+      <p>This webpage would like to play sounds</p>
+      <p class="buttons">
+        <button value="0">Block</button>
+        <button value="1">Allow</button>
+      </p>
+    </div>
+    <button id="btn">Trigger notification</button>
      <!-- Hidden button element -->
-    <button id="hiddenButton" style="display: none;"></button>
+    
   
     <!-- Audio element -->
     <audio id="audio" src="./sound/sound.mp3" loop></audio>
   
     <script>
-      // Trigger playback when the page loads
-      window.addEventListener('load', function() {
-        var audio = document.getElementById('audio');
-        audio.play().then(function() {
-          // Autoplay started
-        }).catch(function(error) {
-          // Autoplay was prevented
-          console.log(error);
-        });
-      });
+      const audio = document.getElementById("audio");
+      audio.muted = true;
       
-      // Simulate a click on the hidden button
-      var hiddenButton = document.getElementById('hiddenButton');
-      hiddenButton.click();
+      const alert_elem = document.querySelector( '.alert' );
+      
+      audio.play().then( () => {
+        // already allowed
+        alert_elem.remove();
+        resetAudio();
+      } )
+      .catch( () => {
+        // need user interaction
+        alert_elem.addEventListener( 'click', ({ target }) => {
+          if( target.matches('button') ) {
+            const allowed = target.value === "1";
+            if( allowed ) {
+              audio.play()
+                .then( resetAudio );
+            }
+            alert_elem.remove();
+          }
+        } );
+      } );
+      
+      document.getElementById( 'btn' ).addEventListener( 'click', (e) => {
+        if( audio.muted ) {
+          console.log( 'silent notification' );
+        }
+        else {
+          audio.play();
+        }
+      } );
+      
+      function resetAudio() {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.muted = false;
+      }
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
