@@ -15,7 +15,7 @@ function firstQuestion(){
     $('.content').hide();
     Swal.fire({
         title: 'He luu Trúc Uyên...',
-        text: 'Anh có điều bí mật muốn hỏi em là...',
+        text: 'Anh có điều bí mật muốn hỏi em ...',
         imageUrl: '../img/cuteCat.jpg',
         imageWidth: 300,
         imageHeight: 300,
