@@ -37,61 +37,8 @@
       <button id="yes" type="button" class="btn btn-danger btn-lg">Em đồng ý &hearts; </button>
       <button id="no" type="button" class="btn btn-info btn-lg">Anh mơ à :< </button>
     </div>
-    <div class="alert">
-      <p>This webpage would like to play sounds</p>
-      <p class="buttons">
-        <button value="0">Block</button>
-        <button value="1">Allow</button>
-      </p>
-    </div>
-    <button id="btn">Trigger notification</button>
-     <!-- Hidden button element -->
-    
-  
-    <!-- Audio element -->
-    <audio id="audio" src="./sound/sound.mp3" loop></audio>
-  
-    <script>
-      const audio = document.getElementById("audio");
-      audio.muted = true;
-      
-      const alert_elem = document.querySelector( '.alert' );
-      
-      audio.play().then( () => {
-        // already allowed
-        alert_elem.remove();
-        resetAudio();
-      } )
-      .catch( () => {
-        // need user interaction
-        alert_elem.addEventListener( 'click', ({ target }) => {
-          if( target.matches('button') ) {
-            const allowed = target.value === "1";
-            if( allowed ) {
-              audio.play()
-                .then( resetAudio );
-            }
-            alert_elem.remove();
-          }
-        } );
-      } );
-      
-      document.getElementById( 'btn' ).addEventListener( 'click', (e) => {
-        if( audio.muted ) {
-          console.log( 'silent notification' );
-        }
-        else {
-          audio.play();
-        }
-      } );
-      
-      function resetAudio() {
-        audio.pause();
-        audio.currentTime = 0;
-        audio.muted = false;
-      }
-    </script>
 
+    <audio src="./sound/sound.mp3" loop autoplay></audio>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
