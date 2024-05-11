@@ -14,8 +14,8 @@ function firstQuestion(){
     
     $('.content').hide();
     Swal.fire({
-        title: 'He luu Dou cute...',
-        text: 'Anh có điều bí mật muốn hỏi công chúa...',
+        title: 'He luu Trúc Uyên...',
+        text: 'Anh có điều bí mật muốn hỏi em là...',
         imageUrl: '../img/cuteCat.jpg',
         imageWidth: 300,
         imageHeight: 300,
@@ -73,7 +73,7 @@ $('#no').click(() => {
 // generate text in input
 function textGenerate() {
     var n = "";
-    var text = " Tại vì anh iu Dou cute đúng không ... :>> ";
+    var text = " Tại vì anh cute đúng không ... :>> ";
     var a = Array.from(text);
     var textVal = $('#txtReason').val() ? $('#txtReason').val() : "";
     var count = textVal.length;
