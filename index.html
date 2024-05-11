@@ -37,15 +37,27 @@
       <button id="yes" type="button" class="btn btn-danger btn-lg">Em đồng ý &hearts; </button>
       <button id="no" type="button" class="btn btn-info btn-lg">Anh mơ à :< </button>
     </div>
-
-    <audio id="myAudio" src="./sound/sound.mp3" loop autoplay muted></audio>
-    <button onclick="toggleMute()">Unmute</button>
-    
+     <!-- Hidden button element -->
+    <button id="hiddenButton" style="display: none;"></button>
+  
+    <!-- Audio element -->
+    <audio id="audio" src="./sound/sound.mp3" loop></audio>
+  
     <script>
-      function toggleMute() {
-        var audio = document.getElementById("myAudio");
-        audio.muted = !audio.muted;
-      }
+      // Trigger playback when the page loads
+      window.addEventListener('load', function() {
+        var audio = document.getElementById('audio');
+        audio.play().then(function() {
+          // Autoplay started
+        }).catch(function(error) {
+          // Autoplay was prevented
+          console.log(error);
+        });
+      });
+      
+      // Simulate a click on the hidden button
+      var hiddenButton = document.getElementById('hiddenButton');
+      hiddenButton.click();
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
